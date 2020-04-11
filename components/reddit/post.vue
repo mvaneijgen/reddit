@@ -2,7 +2,7 @@
   <li class="component-post" :data-sub="item.data.subreddit">
     <div class="content">
       <h3 v-if="item.data.title" class="title"><a :href="'//reddit.com'+item.data.permalink" target="_blank">{{item.data.title}}</a></h3>
-      <h3 v-else class="title"><small>reply</small> <a :href="'//reddit.com'+item.data.permalink" target="_blank">{{item.data.link_title}}</a></h3>
+      <h3 v-else class="title"><small>➡</small> <a :href="'//reddit.com'+item.data.permalink" target="_blank">{{item.data.link_title}}</a></h3>
       <button @click="clickToggle">toggle</button>
 
       <ul class="meta">
@@ -13,7 +13,7 @@
         <li class="label">{{item.data.subreddit}}</li>
       </ul>
       <div v-if="toggle" v-html="item.data.selftext_html"></div>
-      <!-- <pre v-if="toggle">{{item.data}}</pre> -->
+      <pre v-if="toggle">{{item.data}}</pre>
     </div>
     <div class="image" v-if="item.data.preview">
       <!-- <img :src="item.data.thumbnail"> -->

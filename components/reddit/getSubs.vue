@@ -50,12 +50,13 @@ export default {
       this.$store.commit("reddit/addPosts", payload);
     },
   },
-  created() {
+  mounted() {
     this.getSubs.forEach(sub => {
       if (this.getPosts.length === 0) {
         this.asyncSubPosts(sub);
       }
     });
-  }, // Each time the app is created (once?)
+  },
+  created() {}, // Each time the app is created (once?)
 };
 </script>
