@@ -1,0 +1,131 @@
+ul {
+  padding: 0;
+  margin: 0;
+
+  ::marker {
+    content: "";
+  }
+  li.component-post {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 4px solid;
+    border-color: $brand-dark;
+    background-color: $brand-dark-lighten;
+    > * {
+      flex: 0 /0 / 100%;
+    }
+    .content {
+      padding: 10px;
+      // flex-grow: 1;
+      width: 100%;
+    }
+    .title {
+      margin: 0;
+      width: 100%;
+      display: inline-block;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      font-size: 14px;
+      color: $brand-light;
+
+      a {
+        color: $brand-light;
+      }
+    }
+    .image {
+      position: relative;
+      // flex-basis: 70px;
+      // width: 70px;
+      flex: 0 0 50px;
+      &:after {
+        content: "";
+        display: block;
+        padding-top: 100%;
+      }
+      // padding-bottom: 100%;
+      // height: 80px;
+      img {
+        position: absolute;
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+      }
+    }
+    .meta {
+      font-size: 11px;
+      color: $brand-grey;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      li {
+        display: inline;
+      }
+    }
+    .label {
+      background-color: $brand-darkgrey;
+      color: #fff;
+      padding: 2px 5px;
+      font-size: 0.8em;
+      line-height: 1em;
+    }
+    &[data-sub="vuejs"] {
+      .label {
+        background-color: #39ae78;
+      }
+    }
+    &[data-sub="Nuxt"] {
+      .label {
+        background-color: #2f4559;
+      }
+    }
+    &[data-sub="css"] {
+      .label {
+        background-color: #c21e01;
+      }
+    }
+    &[data-sub="web_design"] {
+      .label {
+        background-color: #60a2ad;
+      }
+    }
+    &[data-sub="web_design"] {
+      .label {
+        background-color: #60a2ad;
+      }
+    }
+    &[data-sub="web_design"] {
+      .label {
+        background-color: #60a2ad;
+      }
+    }
+    &[data-sub="webdev"] {
+      .label {
+        background-color: #b45140;
+      }
+    }
+    &[data-sub="Jekyll"] {
+      .label {
+        background-color: #d6a510;
+      }
+    }
+    &[data-sub="ProWordPress"] {
+      .label {
+        background-color: #419ac7;
+      }
+    }
+    button {
+      position: absolute;
+      right: 0;
+      top: 0;
+      opacity: 0;
+    }
+    &:hover {
+      button {
+        opacity: 1;
+      }
+    }
+  }
+}
