@@ -81,10 +81,10 @@ module.exports = {
     prefix: "https://www.reddit.com/",
     // prefix: "https://cors-anywhere.herokuapp.com/https://reddit.com/",
     progress: true,
-    // common: {
-    //   // 'Accept': 'application/json, text/plain, */*'
-    //   'Access-Control-Allow-Origin': '*'
-    // },
+    common: {
+      // 'Accept': 'application/json, text/plain, */*'
+      'Access-Control-Allow-Origin': '*'
+    },
 
   },
   render: {
