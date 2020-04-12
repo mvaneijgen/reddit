@@ -1,25 +1,44 @@
 <template>
   <li class="component-post" :data-sub="item.data.subreddit">
     <div class="content">
-      <h3 v-if="item.data.title" class="title"><a :href="'//reddit.com'+item.data.permalink" target="_blank">{{item.data.title}}</a></h3>
-      <h3 v-else class="title"><small>➡</small> <a :href="'//reddit.com'+item.data.permalink" target="_blank">{{item.data.link_title}}</a></h3>
-      <button @click="clickToggle">toggle</button>
+      <div class="base">
+        <div class="inner">
+          <template v-if="!item.data.selftext_html">
+            <div class="small" v-if="item.data.ups > 1 && !item.data.title ||item.data.ups > 30 || item.data.author === 'mvaneijgen'">🔺{{item.data.ups}}</div>
+          </template>
+          <h3 v-if="item.data.title" class="title"><a :href="'//reddit.com'+item.data.permalink" target="_blank">{{item.data.title}}</a></h3>
+          <h3 v-else class="title"><small>➡</small> <a :href="'//reddit.com'+item.data.permalink" target="_blank">{{item.data.link_title}}</a></h3>
+          <template v-if="!item.data.selftext_html">
+            <div class="small" v-if="item.data.ups < 2">💬 {{item.data.num_comments}}</div>
+          </template>
+        </div>
+        <template v-if="!item.data.selftext_html">
+          <div class="label">{{item.data.subreddit}}</div>
+        </template>
+      </div>
+      <button @click="clickToggle" v-if="item.data.selftext_html">toggle</button>
 
-      <ul class="meta">
-        <li v-if="item.data.ups < 2">💬 {{item.data.num_comments}}</li>
-        <li v-if="item.data.ups > 1 && !item.data.title ||item.data.ups > 30 || item.data.author === 'mvaneijgen'">🔺 {{item.data.ups}}</li>
-        <li><time>{{$moment.unix(item.data.created_utc).fromNow()}}</time></li>
-        <li>u/{{item.data.author}}</li>
-        <li class="label">{{item.data.subreddit}}</li>
+      <ul class="meta" v-if="item.data.selftext_html">
+        <ul>
+          <li v-if="item.data.ups > 1 && !item.data.title ||item.data.ups > 30 || item.data.author === 'mvaneijgen'">🔺{{item.data.ups}}</li>
+          <li v-if="item.data.ups < 2">💬 {{item.data.num_comments}}</li>
+          <li>u/{{item.data.author}}</li>
+
+        </ul>
+        <ul>
+          <li><time>{{$moment.unix(item.data.created_utc).fromNow()}}</time></li>
+          <li class="label">{{item.data.subreddit}}</li>
+        </ul>
       </ul>
-      <div v-if="toggle" v-html="item.data.selftext_html"></div>
+      <div v-if="toggle" v-html="decodeHTML(item.data.selftext_html)" class="text"></div>
+      <!-- <div v-if="toggle" class="text">{{item.data.selftext_html}}</div> -->
       <pre v-if="toggle">{{item.data}}</pre>
     </div>
-    <div class="image" v-if="item.data.preview">
-      <!-- <img :src="item.data.thumbnail"> -->
-      <img :src="item.data.preview.images[0].resolutions[1].url.replace(/amp;/g, '')" alt="test">
-      <!-- <img :src="item.data.preview.images[0].resolutions[1].url.replace(/amp;/g, '')" alt="test"> -->
-    </div>
+    <!-- <div class="image" v-if="item.data.preview"> -->
+    <!-- <img :src="item.data.thumbnail"> -->
+    <!-- <img :src="item.data.preview.images[0].resolutions[1].url.replace(/amp;/g, '')" alt="test"> -->
+    <!-- <img :src="item.data.preview.images[0].resolutions[1].url.replace(/amp;/g, '')" alt="test"> -->
+    <!-- </div> -->
   </li>
 </template>
 
@@ -41,6 +60,11 @@ export default {
     // format(url) {
     //   return str_replace('amp;', '', url);
     // }
+    decodeHTML(html) {
+      const txt = document.createElement("textarea");
+      txt.innerHTML = html;
+      return txt.value;
+    },
   }, // Are functions run on user actions example @click or on lifecycle hooks
   // watch: {}, // Watchs data, needs to have the same name as the data that is being watched
   // directives: {}, // Create custom v-directives accepts element and bindings

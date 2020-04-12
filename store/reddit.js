@@ -1,10 +1,8 @@
 export const state = () => ({
   subsMain: {
     subs: [
-      "CodePen",
       "css",
       "Frontend",
-      "Jekyll",
       "Nuxt",
       "ProWordPress",
       "vscode",
@@ -25,6 +23,8 @@ export const state = () => ({
   },
   subsSmall: {
     subs: [
+      "Jekyll",
+      "CodePen",
       "CGPGrey",
       "CGPGrey2",
       "Automator",

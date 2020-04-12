@@ -20,19 +20,30 @@ ul {
       padding: 10px;
       // flex-grow: 1;
       width: 100%;
-    }
-    .title {
-      margin: 0;
-      width: 100%;
-      display: inline-block;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      font-size: 14px;
       color: $brand-light;
 
       a {
         color: $brand-light;
+      }
+    }
+    .title {
+      margin: 0;
+      // max-width: 90%;
+      font-size: 14px;
+      display: inline-block;
+
+      a {
+        text-decoration: none;
+        // white-space: nowrap;
+        // overflow: hidden;
+        // text-overflow: ellipsis;
+      }
+    }
+    .text {
+      color: #fff;
+      hyphens: auto;
+      a {
+        color: #fff;
       }
     }
     .image {
@@ -54,22 +65,54 @@ ul {
         height: 100%;
       }
     }
+
+    .base,
+    .base .inner,
     .meta {
-      font-size: 11px;
-      color: $brand-grey;
       display: flex;
       justify-content: space-between;
       align-items: center;
       li {
         display: inline;
       }
+      .small {
+        font-size: 11px;
+        white-space: nowrap;
+      }
+    }
+    .base {
+      align-items: flex-start;
+      .inner {
+        max-width: 90%;
+        justify-content: flex-start;
+        align-items: flex-start;
+        > * {
+          margin-right: 5px;
+          // &:last-child {
+          //   margin-right: 0;
+          // }
+        }
+      }
+    }
+    .meta {
+      color: $brand-grey;
+      font-size: 11px;
+      > ul {
+        li {
+          margin-right: 5px;
+          &:last-child {
+            margin-right: 0;
+          }
+        }
+      }
     }
     .label {
       background-color: $brand-darkgrey;
       color: #fff;
       padding: 2px 5px;
-      font-size: 0.8em;
+      font-size: 9px;
       line-height: 1em;
+      width: auto;
     }
     &[data-sub="vuejs"] {
       .label {
@@ -114,6 +157,31 @@ ul {
     &[data-sub="ProWordPress"] {
       .label {
         background-color: #419ac7;
+      }
+    }
+    &[data-sub="sketchapp"] {
+      .label {
+        background-color: #d6a510;
+      }
+    }
+    &[data-sub="Cortex"] {
+      .label {
+        background-color: #191f23;
+      }
+    }
+    &[data-sub="AffinityDesigner"] {
+      .label {
+        background-color: #2f6db4;
+      }
+    }
+    &[data-sub="Jekyll"] {
+      .label {
+        background-color: #d6a510;
+      }
+    }
+    &[data-sub="Jekyll"] {
+      .label {
+        background-color: #d6a510;
       }
     }
     button {

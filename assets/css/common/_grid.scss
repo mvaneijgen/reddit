@@ -15,6 +15,7 @@ main {
   grid-row-gap: 10px;
   > * {
     overflow-y: scroll;
+    overflow-x: hidden;
     &:nth-child(1) {
       grid-area: 1 / 1 / 6 / 4;
     }
