@@ -36,9 +36,9 @@ export default {
   }, // Data with computed logic
   methods: {
     async asyncSubPosts(sub) {
-      let path = `r/${sub}/new.json?limit=5`;
+      let path = `r/${sub}/new.json?limit=5&nocache=${new Date().getTime()}`;
       if (sub === "user/mvaneijgen") {
-        path = `${sub}.json?limit=20`;
+        path = `${sub}.json?limit=20&nocache=${new Date().getTime()}`;
       }
 
       // this.$axios.setHeader("Access-Control-Allow-Origin", "*");

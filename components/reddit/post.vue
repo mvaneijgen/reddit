@@ -7,7 +7,7 @@
 
       <ul class="meta">
         <li v-if="item.data.ups < 2">💬 {{item.data.num_comments}}</li>
-        <li v-if="item.data.ups > 1 && !item.data.title ||item.data.ups > 30">🔺 {{item.data.ups}}</li>
+        <li v-if="item.data.ups > 1 && !item.data.title ||item.data.ups > 30 || item.data.author === 'mvaneijgen'">🔺 {{item.data.ups}}</li>
         <li><time>{{$moment.unix(item.data.created_utc).fromNow()}}</time></li>
         <li>u/{{item.data.author}}</li>
         <li class="label">{{item.data.subreddit}}</li>
