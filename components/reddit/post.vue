@@ -1,5 +1,5 @@
 <template>
-  <li class="component-post" :data-sub="item.data.subreddit">
+  <li class="component-post" :data-sub="item.data.subreddit" :class="{ external: !item.data.selftext_html }">
     <div class="content">
       <div class="base">
         <div class="inner">
@@ -16,9 +16,8 @@
           <div class="label">{{item.data.subreddit}}</div>
         </template>
       </div>
-      <button @click="clickToggle" v-if="item.data.selftext_html">toggle</button>
 
-      <ul class="meta" v-if="item.data.selftext_html">
+      <ul class="meta" v-if="item.data.selftext_html" @click="clickToggle">
         <ul>
           <li v-if="item.data.ups > 1 && !item.data.title ||item.data.ups > 30 || item.data.author === 'mvaneijgen'">🔺{{item.data.ups}}</li>
           <li v-if="item.data.ups < 2">💬 {{item.data.num_comments}}</li>
@@ -31,8 +30,9 @@
         </ul>
       </ul>
       <div v-if="toggle" v-html="decodeHTML(item.data.selftext_html)" class="text"></div>
+      <div v-if="item.data.author === 'mvaneijgen'" v-html="decodeHTML(item.data.body_html)" class="text"></div>
       <!-- <div v-if="toggle" class="text">{{item.data.selftext_html}}</div> -->
-      <pre v-if="toggle">{{item.data}}</pre>
+      <!-- <pre>{{item.data}}</pre> -->
     </div>
     <!-- <div class="image" v-if="item.data.preview"> -->
     <!-- <img :src="item.data.thumbnail"> -->
