@@ -11,6 +11,7 @@ export const state = () => ({
   },
   subsOther: {
     subs: [
+      "NotionSo",
       "Jekyll",
       "webdev",
       "vscode",

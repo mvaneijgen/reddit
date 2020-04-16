@@ -1,3 +1,20 @@
+::selection {
+  background: rgba($brand-lightgrey, 1);
+  color: $brand-dark;
+}
+::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  border-radius: 0;
+}
+::-webkit-scrollbar {
+  width: 8px;
+  background-color: $brand-dark;
+}
+::-webkit-scrollbar-thumb {
+  // border-radius: 10px;
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  background-color: $brand-grey;
+}
 body {
   font-family: $font-base;
 }

@@ -49,11 +49,33 @@ export default {
       };
       this.$store.commit("reddit/addPosts", payload);
     },
+    async fetchSubPosts(sub) {
+      let path = `r/${sub}/new.json?limit=7`;
+      if (sub === "user/mvaneijgen") {
+        path = `${sub}.json?limit=20`;
+      }
+
+      const baseURL = "https://www.reddit.com/";
+      let url = `${baseURL}${path}`;
+
+      const data = await fetch(url)
+        .then(response => {
+          return response.json();
+        })
+        .then(data => {
+          console.log(data);
+          const payload = {
+            sub: this.subs,
+            posts: data.data.children,
+          };
+          this.$store.commit("reddit/addPosts", payload);
+        });
+    },
   },
   mounted() {
     this.getSubs.forEach(sub => {
       if (this.getPosts.length === 0) {
-        this.asyncSubPosts(sub);
+        this.fetchSubPosts(sub);
       }
     });
   },
