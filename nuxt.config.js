@@ -65,7 +65,7 @@ module.exports = {
     timezone: true
   },
   modules: [
-    "@nuxtjs/axios",
+    // "@nuxtjs/axios",
     // "@nuxtjs/apollo",
     // '@nuxtjs/redirect-module',
   ],
@@ -74,19 +74,18 @@ module.exports = {
   //     default: '@/apollo/client-configs/default.js'
   //   }
   // },
-  axios: {
-    proxy: true, // Prevent CORS
-    baseURL: "https://www.reddit.com/",
-    // baseURL: "https://cors-anywhere.herokuapp.com/https://reddit.com/",
-    prefix: "https://www.reddit.com/",
-    // prefix: "https://cors-anywhere.herokuapp.com/https://reddit.com/",
-    progress: true,
-    // common: {
-    //   // 'Accept': 'application/json, text/plain, */*'
-    //   'Access-Control-Allow-Origin': '*'
-    // },
-
-  },
+  // axios: {
+  //   proxy: true, // Prevent CORS
+  //   baseURL: "https://www.reddit.com/",
+  //   // baseURL: "https://cors-anywhere.herokuapp.com/https://reddit.com/",
+  //   prefix: "https://www.reddit.com/",
+  //   // prefix: "https://cors-anywhere.herokuapp.com/https://reddit.com/",
+  //   progress: true,
+  //   // common: {
+  //   //   // 'Accept': 'application/json, text/plain, */*'
+  //   //   'Access-Control-Allow-Origin': '*'
+  //   // },
+  // },
   render: {
     static: {
       maxAge: 1000 * 60 * 60 * 24 * 7

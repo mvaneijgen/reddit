@@ -35,20 +35,20 @@ export default {
     },
   }, // Data with computed logic
   methods: {
-    async asyncSubPosts(sub) {
-      let path = `r/${sub}/new.json?limit=7`;
-      if (sub === "user/mvaneijgen") {
-        path = `${sub}.json?limit=20`;
-      }
+    // async asyncSubPosts(sub) {
+    //   let path = `r/${sub}/new.json?limit=7`;
+    //   if (sub === "user/mvaneijgen") {
+    //     path = `${sub}.json?limit=20`;
+    //   }
 
-      // this.$axios.setHeader("Access-Control-Allow-Origin", "*");
-      const data = await this.$axios.$get(path);
-      const payload = {
-        sub: this.subs,
-        posts: data.data.children,
-      };
-      this.$store.commit("reddit/addPosts", payload);
-    },
+    //   // this.$axios.setHeader("Access-Control-Allow-Origin", "*");
+    //   const data = await this.$axios.$get(path);
+    //   const payload = {
+    //     sub: this.subs,
+    //     posts: data.data.children,
+    //   };
+    //   this.$store.commit("reddit/addPosts", payload);
+    // },
     async fetchSubPosts(sub) {
       let path = `r/${sub}/new.json?limit=7`;
       if (sub === "user/mvaneijgen") {
@@ -63,7 +63,6 @@ export default {
           return response.json();
         })
         .then(data => {
-          console.log(data);
           const payload = {
             sub: this.subs,
             posts: data.data.children,
