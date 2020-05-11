@@ -6,6 +6,8 @@ export const state = () => ({
       "ProWordPress",
       "vuejs",
       "web_design",
+      "webdev",
+      "Frontend",
     ],
     posts: [],
   },
@@ -13,9 +15,6 @@ export const state = () => ({
     subs: [
       "NotionSo",
       "Jekyll",
-      "webdev",
-      "vscode",
-      "Frontend",
       "Cortex",
       "HelloInternet",
     ],

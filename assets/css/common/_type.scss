@@ -11,9 +11,8 @@
   background-color: $brand-dark;
 }
 ::-webkit-scrollbar-thumb {
-  // border-radius: 10px;
   -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
-  background-color: $brand-grey;
+  background-color: $brand-darkgrey;
 }
 body {
   font-family: $font-base;

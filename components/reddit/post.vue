@@ -22,7 +22,6 @@
           <li v-if="item.data.ups > 1 && !item.data.title ||item.data.ups > 30 || item.data.author === 'mvaneijgen'">🔺{{item.data.ups}}</li>
           <li v-if="item.data.ups < 2">💬 {{item.data.num_comments}}</li>
           <li>u/{{item.data.author}}</li>
-
         </ul>
         <ul>
           <li><time>{{$moment.unix(item.data.created_utc).fromNow()}}</time></li>
@@ -49,9 +48,6 @@ export default {
     clickToggle() {
       this.toggle = !this.toggle;
     },
-    // format(url) {
-    //   return str_replace('amp;', '', url);
-    // }
     decodeHTML(html) {
       const txt = document.createElement("textarea");
       txt.innerHTML = html;
